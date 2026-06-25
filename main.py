@@ -18,7 +18,7 @@ def get_dt_near0(t, n0, l):
 n0 = 1000
 T_half = 5730 # anos
 l = np.log(2)/T_half
-h = 10
+h = 1000
 t = np.arange(0, 100000, h)
 N_analytic = n0*np.exp(-l*t)
 N_numeric = euler_decay(l, n0, h, len(t))
@@ -33,9 +33,10 @@ with open('experiment.dat', 'r') as f:
 
 plt.plot(t, N_analytic, label="Analytic solution", color='#000000')
 plt.plot(t, N_numeric, label="Numeric solution", linestyle='--')
-plt.plot(t_sim, N_sim, label="Simulation")
+plt.plot(t_sim, N_sim, label="Simulation") # fit to check if the lambda is consistant
 
 plt.xlim(0, t[-1])
 plt.ylim(0, n0)
 plt.legend()
+plt.tight_layout()
 plt.show()
