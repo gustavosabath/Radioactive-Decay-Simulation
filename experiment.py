@@ -6,8 +6,8 @@ isotopes = {
     "Uranio-238": 4.47e9
 }
 T_half = isotopes["Carbono-14"]
-n0 = 1000
-dt = 10 #years
+n0 = 450
+dt = 1 #years
 steps = T_half / dt # How many steps to achieve half of n0
 p = 1 - ((0.5)**(1/steps))
 
@@ -30,7 +30,7 @@ while n0 > 0:
         if r < p:
             decayed += 1
     n0 -= decayed
-    if not half_reached and n0 <= 500:
+    if not half_reached and n0 <= n0/2:
         t_metade = t_counter
         print(
         f"Metade atingida em {t_counter} anos"

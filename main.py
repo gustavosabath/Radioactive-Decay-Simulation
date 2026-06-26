@@ -15,10 +15,10 @@ def get_dt_near0(t, n0, l):
             return dt
     raise Exception("dt not found")
 
-n0 = 1000
+n0 = 450
 T_half = 5730 # anos
 l = np.log(2)/T_half
-h = 1000
+h = 1
 t = np.arange(0, 100000, h)
 N_analytic = n0*np.exp(-l*t)
 N_numeric = euler_decay(l, n0, h, len(t))
